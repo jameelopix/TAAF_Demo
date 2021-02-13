@@ -1,0 +1,9 @@
+.taaf-container {
+  min-width: 100%;
+  text-align: center;
+}
+.taaf-table {
+}
+.table-responsive {
+    max-height:500px;
+}

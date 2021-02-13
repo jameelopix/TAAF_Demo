@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAAF</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/taaf.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/taaf.css" />
+  </head>
+  <body ng-controller="TodoListController as todoList">
+    <div class="container taaf-container">
+      <div class="row">
+        <div class="col-sm"><h1>TAAF</h1></div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="table-responsive">
+            <span
+              >{{todoList.selectedCount()}} of {{todoList.todos.length}}
+              Selected</span
+            >
+            <table
+              class="table table-light table-striped table-hover taaf-table"
+            >
+              <thead>
+                <tr>
+                  <th>Selection</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="todo in todoList.todos">
+                  <td>
+                    <input type="checkbox" ng-model="todo.done" />
+                  </td>
+                  <td>
+                    <span>{{todo.text}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <br />
+          <button
+            class="btn btn-primary col-4"
+            value="Execute"
+            ng-click="todoList.execute()"
+          >
+            Execute!!!
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
